@@ -45,7 +45,31 @@ Open and run the notebook:
 - PartC_xgboost_final.ipynb (main version)
 - Alternative versions: Part_C_xgboost.ipynb, PartC.ipynb (earlier drafts)
   
-> Visual results will automatically display during execution.
+> [!TIP]
+>  Visual results will automatically display during execution.
+
+## Data Path Note
+In the notebook we read the file like this:
+```python
+df = pd.read_excel("./datasets/datasets.xlsx", sheet_name="Sheet1")
+```
+This path assumes the file is inside a folder named datasets at the project root.
+If your file is somewhere else, change the path accordingly:
+- Same folder as the notebook
+  ``` python
+  df = pd.read_excel("datasets.xlsx", sheet_name="Sheet1")
+  ```
+- One level up
+  ``` python
+  df = pd.read_excel("../datasets.xlsx", sheet_name="Sheet1")
+  ```
+- Custom folder
+  ``` python
+  df = pd.read_excel("/full/path/to/datasets.xlsx", sheet_name="Sheet1")
+  ```
+> [!TIP]
+> If you see FileNotFoundError, the path is wrong. Check the file location and adjust the string.\
+> If you renamed the sheet, also update sheet_name="Sheet1".
 
 ## Outputs
 - All key visualisations (Actual vs. Predicted plots, Residuals, SHAP plots, Clusters) are displayed when running the notebook
